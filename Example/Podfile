@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'ZSKImageEditor_Example' do
+  pod 'ZSKImageEditor', :path => '../'
+
+  target 'ZSKImageEditor_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
