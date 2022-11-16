@@ -1,0 +1,22 @@
+{
+  "name": "ZSKImageEditor",
+  "version": "0.1.0",
+  "summary": "A short description of ZSKImageEditor.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/张少康/ZSKImageEditor",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "张少康": "511721487@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/张少康/ZSKImageEditor.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ZSKImageEditor/Classes/**/*"
+}

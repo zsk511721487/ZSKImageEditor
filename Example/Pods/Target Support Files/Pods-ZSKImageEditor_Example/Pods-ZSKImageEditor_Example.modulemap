@@ -1,0 +1,6 @@
+framework module Pods_ZSKImageEditor_Example {
+  umbrella header "Pods-ZSKImageEditor_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

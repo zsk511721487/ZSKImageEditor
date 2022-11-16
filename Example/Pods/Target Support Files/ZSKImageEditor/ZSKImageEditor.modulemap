@@ -1,0 +1,6 @@
+framework module ZSKImageEditor {
+  umbrella header "ZSKImageEditor-umbrella.h"
+
+  export *
+  module * { export * }
+}

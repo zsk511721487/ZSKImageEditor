@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47E96ABCE210F3812FEC3F1034C1E964 /* Pods-ZSKImageEditor_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6C7180EFA95A126A157CDDC46B66C4 /* Pods-ZSKImageEditor_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4946C949D97BBC568FA0725EB70F0184 /* Pods-ZSKImageEditor_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A039B619896BA12C14235DB2DB2A2768 /* Pods-ZSKImageEditor_Example-dummy.m */; };
+		6ED4A1785141ADA9E495448F6F579A6C /* Pods-ZSKImageEditor_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B13FE5D4908661CBF9B8D3B6211D0DB9 /* Pods-ZSKImageEditor_Tests-dummy.m */; };
+		7E30158A81B3EC261E0807F209BBFF8B /* Pods-ZSKImageEditor_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F43B24F17A678BC38EF0A0E568960AB1 /* Pods-ZSKImageEditor_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E7C8DB4675AB851890D3D7772654955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		8F6E74FD060D363A57A8C3816364CE31 /* ZSKImageEditor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD3B7283186FDCB0A9703C7338C915 /* ZSKImageEditor-dummy.m */; };
+		A3219F0B2D0CA76A13C0AAB271462CE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		B99E02137C9B812DB30E74CAC219622A /* ZSKImageEditor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C8E12562E6796EF3584151EB612932BD /* ZSKImageEditor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB33CF9FFE5A917D8D7D1CAF4B20469A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		EE9C38754A53046917D459D72E94FCC5 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26AE6FDDD65B768EF1D7A8C377B32E /* ReplaceMe.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		34F07B53D2AD9E7808106F8160528C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1719E36CC353EA4614A9161F7CCD4D5;
+			remoteInfo = ZSKImageEditor;
+		};
+		B4B032974321738439B58A6BC27BE82D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BC2E03BF48CD05E524E7E909F929D17;
+			remoteInfo = "Pods-ZSKImageEditor_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0CD1FCD7B2335DFC7DFCEEC83D258653 /* Pods-ZSKImageEditor_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ZSKImageEditor_Tests"; path = Pods_ZSKImageEditor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		15756CB92532FE3116BF4F464256F898 /* Pods-ZSKImageEditor_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZSKImageEditor_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		28867369815341DCA457A54B6FFD941E /* ZSKImageEditor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZSKImageEditor-prefix.pch"; sourceTree = "<group>"; };
+		2A066C4B8B0F06B5B0BFF7000CBA5F65 /* ZSKImageEditor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZSKImageEditor.debug.xcconfig; sourceTree = "<group>"; };
+		2B3E3F2177CD206D970A4BBB4A55E2D8 /* ZSKImageEditor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ZSKImageEditor-Info.plist"; sourceTree = "<group>"; };
+		338A452001E61A93453FB6D83FAAF34F /* ZSKImageEditor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ZSKImageEditor.modulemap; sourceTree = "<group>"; };
+		3B632DF14B593D7D9D175089131AF7A4 /* Pods-ZSKImageEditor_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ZSKImageEditor_Example"; path = Pods_ZSKImageEditor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C395429F671E4B72B02F1EC48FB202C /* Pods-ZSKImageEditor_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZSKImageEditor_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3F26AE6FDDD65B768EF1D7A8C377B32E /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = ZSKImageEditor/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		4DEEF918B7463CFC34628CE5B2B97DA1 /* ZSKImageEditor */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ZSKImageEditor; path = ZSKImageEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		549032E094F174D9220C354C9475F539 /* Pods-ZSKImageEditor_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZSKImageEditor_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5DF550A44A058615FF2FC0230D75AB0C /* Pods-ZSKImageEditor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZSKImageEditor_Example.release.xcconfig"; sourceTree = "<group>"; };
+		5ED592AABAA88126C6933430928DCD96 /* Pods-ZSKImageEditor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZSKImageEditor_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		66AB02A9CA08E2C8AEE0CCA468FD5C53 /* Pods-ZSKImageEditor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ZSKImageEditor_Tests.modulemap"; sourceTree = "<group>"; };
+		7279E40BF79B9239C5EC83B008BA1ADF /* Pods-ZSKImageEditor_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZSKImageEditor_Tests-Info.plist"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7C6C7180EFA95A126A157CDDC46B66C4 /* Pods-ZSKImageEditor_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ZSKImageEditor_Tests-umbrella.h"; sourceTree = "<group>"; };
+		86CAB9C02D5603CC2597FC030203504C /* Pods-ZSKImageEditor_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZSKImageEditor_Example-frameworks.sh"; sourceTree = "<group>"; };
+		87433ED0441BDE9C6E8AA9A88AB4CAA3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		8D2AE7B8689ED2A9AF5DDA994D163A54 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9B89C1DDA3C54FD1225D77F54F674588 /* Pods-ZSKImageEditor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ZSKImageEditor_Example.modulemap"; sourceTree = "<group>"; };
+		9BB6C17BA8A205E359816E9B3211CF4A /* Pods-ZSKImageEditor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZSKImageEditor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DDD3B7283186FDCB0A9703C7338C915 /* ZSKImageEditor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZSKImageEditor-dummy.m"; sourceTree = "<group>"; };
+		A039B619896BA12C14235DB2DB2A2768 /* Pods-ZSKImageEditor_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZSKImageEditor_Example-dummy.m"; sourceTree = "<group>"; };
+		B13FE5D4908661CBF9B8D3B6211D0DB9 /* Pods-ZSKImageEditor_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZSKImageEditor_Tests-dummy.m"; sourceTree = "<group>"; };
+		B5BC02527BC0623EE67261140EB38E43 /* ZSKImageEditor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZSKImageEditor.release.xcconfig; sourceTree = "<group>"; };
+		C530B57856E1CE52E413E4134D1D9386 /* Pods-ZSKImageEditor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZSKImageEditor_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		C8E12562E6796EF3584151EB612932BD /* ZSKImageEditor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZSKImageEditor-umbrella.h"; sourceTree = "<group>"; };
+		CC28C413CB63F5F75FF5E17BA74A66A8 /* ZSKImageEditor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ZSKImageEditor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E9970C7CEEBFB9756BDE28F727AB77F7 /* Pods-ZSKImageEditor_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZSKImageEditor_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F43B24F17A678BC38EF0A0E568960AB1 /* Pods-ZSKImageEditor_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ZSKImageEditor_Example-umbrella.h"; sourceTree = "<group>"; };
+		FCC987314059FC7B200C50B01E7B8622 /* Pods-ZSKImageEditor_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZSKImageEditor_Example-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16FEA4D816F876FA91E4889965C5EC74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB33CF9FFE5A917D8D7D1CAF4B20469A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B24C1E7EDC7ED1CB6BCC4D96BDBD822 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3219F0B2D0CA76A13C0AAB271462CE7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C5895A72133312DA220B5DB8A4489C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E7C8DB4675AB851890D3D7772654955 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17391AC463D278D3151F4D954C7A0A5A /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3CBB5C427E07620FEB4EEF5148F83AB /* ZSKImageEditor */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		20EAF967047B0E401E4265E08C1D0B36 /* Pods-ZSKImageEditor_Example */ = {
+			isa = PBXGroup;
+			children = (
+				9B89C1DDA3C54FD1225D77F54F674588 /* Pods-ZSKImageEditor_Example.modulemap */,
+				E9970C7CEEBFB9756BDE28F727AB77F7 /* Pods-ZSKImageEditor_Example-acknowledgements.markdown */,
+				15756CB92532FE3116BF4F464256F898 /* Pods-ZSKImageEditor_Example-acknowledgements.plist */,
+				A039B619896BA12C14235DB2DB2A2768 /* Pods-ZSKImageEditor_Example-dummy.m */,
+				86CAB9C02D5603CC2597FC030203504C /* Pods-ZSKImageEditor_Example-frameworks.sh */,
+				FCC987314059FC7B200C50B01E7B8622 /* Pods-ZSKImageEditor_Example-Info.plist */,
+				F43B24F17A678BC38EF0A0E568960AB1 /* Pods-ZSKImageEditor_Example-umbrella.h */,
+				5ED592AABAA88126C6933430928DCD96 /* Pods-ZSKImageEditor_Example.debug.xcconfig */,
+				5DF550A44A058615FF2FC0230D75AB0C /* Pods-ZSKImageEditor_Example.release.xcconfig */,
+			);
+			name = "Pods-ZSKImageEditor_Example";
+			path = "Target Support Files/Pods-ZSKImageEditor_Example";
+			sourceTree = "<group>";
+		};
+		4792740D88D5C27C8A0122C10D2967AC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				338A452001E61A93453FB6D83FAAF34F /* ZSKImageEditor.modulemap */,
+				9DDD3B7283186FDCB0A9703C7338C915 /* ZSKImageEditor-dummy.m */,
+				2B3E3F2177CD206D970A4BBB4A55E2D8 /* ZSKImageEditor-Info.plist */,
+				28867369815341DCA457A54B6FFD941E /* ZSKImageEditor-prefix.pch */,
+				C8E12562E6796EF3584151EB612932BD /* ZSKImageEditor-umbrella.h */,
+				2A066C4B8B0F06B5B0BFF7000CBA5F65 /* ZSKImageEditor.debug.xcconfig */,
+				B5BC02527BC0623EE67261140EB38E43 /* ZSKImageEditor.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ZSKImageEditor";
+			sourceTree = "<group>";
+		};
+		4B42B3C7B53CFCC0491ECE6D7CA0D90E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B632DF14B593D7D9D175089131AF7A4 /* Pods-ZSKImageEditor_Example */,
+				0CD1FCD7B2335DFC7DFCEEC83D258653 /* Pods-ZSKImageEditor_Tests */,
+				4DEEF918B7463CFC34628CE5B2B97DA1 /* ZSKImageEditor */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		923EF458A7BDF012EF542565795DB228 /* Pods-ZSKImageEditor_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				66AB02A9CA08E2C8AEE0CCA468FD5C53 /* Pods-ZSKImageEditor_Tests.modulemap */,
+				549032E094F174D9220C354C9475F539 /* Pods-ZSKImageEditor_Tests-acknowledgements.markdown */,
+				3C395429F671E4B72B02F1EC48FB202C /* Pods-ZSKImageEditor_Tests-acknowledgements.plist */,
+				B13FE5D4908661CBF9B8D3B6211D0DB9 /* Pods-ZSKImageEditor_Tests-dummy.m */,
+				7279E40BF79B9239C5EC83B008BA1ADF /* Pods-ZSKImageEditor_Tests-Info.plist */,
+				7C6C7180EFA95A126A157CDDC46B66C4 /* Pods-ZSKImageEditor_Tests-umbrella.h */,
+				9BB6C17BA8A205E359816E9B3211CF4A /* Pods-ZSKImageEditor_Tests.debug.xcconfig */,
+				C530B57856E1CE52E413E4134D1D9386 /* Pods-ZSKImageEditor_Tests.release.xcconfig */,
+			);
+			name = "Pods-ZSKImageEditor_Tests";
+			path = "Target Support Files/Pods-ZSKImageEditor_Tests";
+			sourceTree = "<group>";
+		};
+		A3CBB5C427E07620FEB4EEF5148F83AB /* ZSKImageEditor */ = {
+			isa = PBXGroup;
+			children = (
+				3F26AE6FDDD65B768EF1D7A8C377B32E /* ReplaceMe.swift */,
+				DE75F40F5F6E26E10BAD6ADF13182929 /* Pod */,
+				4792740D88D5C27C8A0122C10D2967AC /* Support Files */,
+			);
+			name = ZSKImageEditor;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				17391AC463D278D3151F4D954C7A0A5A /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				4B42B3C7B53CFCC0491ECE6D7CA0D90E /* Products */,
+				E5D113FBDB4EE6D6225B7F3F34F4C694 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE75F40F5F6E26E10BAD6ADF13182929 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				8D2AE7B8689ED2A9AF5DDA994D163A54 /* LICENSE */,
+				87433ED0441BDE9C6E8AA9A88AB4CAA3 /* README.md */,
+				CC28C413CB63F5F75FF5E17BA74A66A8 /* ZSKImageEditor.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		E5D113FBDB4EE6D6225B7F3F34F4C694 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				20EAF967047B0E401E4265E08C1D0B36 /* Pods-ZSKImageEditor_Example */,
+				923EF458A7BDF012EF542565795DB228 /* Pods-ZSKImageEditor_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		388C544CC2F57021B721877534E03AEE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B99E02137C9B812DB30E74CAC219622A /* ZSKImageEditor-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A93B45298009CD94EC1601E3573A6F32 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47E96ABCE210F3812FEC3F1034C1E964 /* Pods-ZSKImageEditor_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4554B58456D9781805C82DDE459A079 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E30158A81B3EC261E0807F209BBFF8B /* Pods-ZSKImageEditor_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2BC2E03BF48CD05E524E7E909F929D17 /* Pods-ZSKImageEditor_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C234DD7B0363577D30DABBD308B6A3AE /* Build configuration list for PBXNativeTarget "Pods-ZSKImageEditor_Example" */;
+			buildPhases = (
+				F4554B58456D9781805C82DDE459A079 /* Headers */,
+				CE19E229705DE10FDE3C7BFC62AA96A1 /* Sources */,
+				16FEA4D816F876FA91E4889965C5EC74 /* Frameworks */,
+				11303F993691DD9EFAFAEAF0AA815486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				031E08DEA663A11FD84000B5AB88CC20 /* PBXTargetDependency */,
+			);
+			name = "Pods-ZSKImageEditor_Example";
+			productName = Pods_ZSKImageEditor_Example;
+			productReference = 3B632DF14B593D7D9D175089131AF7A4 /* Pods-ZSKImageEditor_Example */;
+			productType = "com.apple.product-type.framework";
+		};
+		D1719E36CC353EA4614A9161F7CCD4D5 /* ZSKImageEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAD1606754AB38D547F1232C8DF35A61 /* Build configuration list for PBXNativeTarget "ZSKImageEditor" */;
+			buildPhases = (
+				388C544CC2F57021B721877534E03AEE /* Headers */,
+				369E6B1264C69FE05D2544C9CD8C99BC /* Sources */,
+				1C5895A72133312DA220B5DB8A4489C6 /* Frameworks */,
+				EFD8A3EAC2DB1A7349F0C5D50B3537E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZSKImageEditor;
+			productName = ZSKImageEditor;
+			productReference = 4DEEF918B7463CFC34628CE5B2B97DA1 /* ZSKImageEditor */;
+			productType = "com.apple.product-type.framework";
+		};
+		F87399256A6DCDBF10D8F3FA211C1B0E /* Pods-ZSKImageEditor_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB4A592FC7DFD080A24F1A3CB43129B /* Build configuration list for PBXNativeTarget "Pods-ZSKImageEditor_Tests" */;
+			buildPhases = (
+				A93B45298009CD94EC1601E3573A6F32 /* Headers */,
+				A2FD5427E0439F9649FA5D70044718CF /* Sources */,
+				1B24C1E7EDC7ED1CB6BCC4D96BDBD822 /* Frameworks */,
+				5C93071FE64931DBD1BD7A5993CD97ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3A4F2A4EF33243998C21E669DBA84BF /* PBXTargetDependency */,
+			);
+			name = "Pods-ZSKImageEditor_Tests";
+			productName = Pods_ZSKImageEditor_Tests;
+			productReference = 0CD1FCD7B2335DFC7DFCEEC83D258653 /* Pods-ZSKImageEditor_Tests */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 4B42B3C7B53CFCC0491ECE6D7CA0D90E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2BC2E03BF48CD05E524E7E909F929D17 /* Pods-ZSKImageEditor_Example */,
+				F87399256A6DCDBF10D8F3FA211C1B0E /* Pods-ZSKImageEditor_Tests */,
+				D1719E36CC353EA4614A9161F7CCD4D5 /* ZSKImageEditor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11303F993691DD9EFAFAEAF0AA815486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C93071FE64931DBD1BD7A5993CD97ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFD8A3EAC2DB1A7349F0C5D50B3537E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		369E6B1264C69FE05D2544C9CD8C99BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE9C38754A53046917D459D72E94FCC5 /* ReplaceMe.swift in Sources */,
+				8F6E74FD060D363A57A8C3816364CE31 /* ZSKImageEditor-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2FD5427E0439F9649FA5D70044718CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ED4A1785141ADA9E495448F6F579A6C /* Pods-ZSKImageEditor_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE19E229705DE10FDE3C7BFC62AA96A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4946C949D97BBC568FA0725EB70F0184 /* Pods-ZSKImageEditor_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		031E08DEA663A11FD84000B5AB88CC20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZSKImageEditor;
+			target = D1719E36CC353EA4614A9161F7CCD4D5 /* ZSKImageEditor */;
+			targetProxy = 34F07B53D2AD9E7808106F8160528C80 /* PBXContainerItemProxy */;
+		};
+		C3A4F2A4EF33243998C21E669DBA84BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ZSKImageEditor_Example";
+			target = 2BC2E03BF48CD05E524E7E909F929D17 /* Pods-ZSKImageEditor_Example */;
+			targetProxy = B4B032974321738439B58A6BC27BE82D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0E8BBF4AB06FB5C1502414C505EF47DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5BC02527BC0623EE67261140EB38E43 /* ZSKImageEditor.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ZSKImageEditor/ZSKImageEditor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ZSKImageEditor/ZSKImageEditor-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ZSKImageEditor/ZSKImageEditor.modulemap";
+				PRODUCT_MODULE_NAME = ZSKImageEditor;
+				PRODUCT_NAME = ZSKImageEditor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0FF2E49FBA8C101091BDEFD2610F13E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ED592AABAA88126C6933430928DCD96 /* Pods-ZSKImageEditor_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ZSKImageEditor_Example/Pods-ZSKImageEditor_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZSKImageEditor_Example/Pods-ZSKImageEditor_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1DA3EB743F0A4D283F3B612F5C1B8AD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A066C4B8B0F06B5B0BFF7000CBA5F65 /* ZSKImageEditor.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ZSKImageEditor/ZSKImageEditor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ZSKImageEditor/ZSKImageEditor-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ZSKImageEditor/ZSKImageEditor.modulemap";
+				PRODUCT_MODULE_NAME = ZSKImageEditor;
+				PRODUCT_NAME = ZSKImageEditor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		8D7549253290BB724B11B5BEF69FF2FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C530B57856E1CE52E413E4134D1D9386 /* Pods-ZSKImageEditor_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ZSKImageEditor_Tests/Pods-ZSKImageEditor_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZSKImageEditor_Tests/Pods-ZSKImageEditor_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		91B6B7B6C320D9FD01EBA2C54FFE4C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DF550A44A058615FF2FC0230D75AB0C /* Pods-ZSKImageEditor_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ZSKImageEditor_Example/Pods-ZSKImageEditor_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZSKImageEditor_Example/Pods-ZSKImageEditor_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CB406301EC0D6B039FE20705EF7F576D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB6C17BA8A205E359816E9B3211CF4A /* Pods-ZSKImageEditor_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ZSKImageEditor_Tests/Pods-ZSKImageEditor_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZSKImageEditor_Tests/Pods-ZSKImageEditor_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C234DD7B0363577D30DABBD308B6A3AE /* Build configuration list for PBXNativeTarget "Pods-ZSKImageEditor_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FF2E49FBA8C101091BDEFD2610F13E3 /* Debug */,
+				91B6B7B6C320D9FD01EBA2C54FFE4C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB4A592FC7DFD080A24F1A3CB43129B /* Build configuration list for PBXNativeTarget "Pods-ZSKImageEditor_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB406301EC0D6B039FE20705EF7F576D /* Debug */,
+				8D7549253290BB724B11B5BEF69FF2FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAD1606754AB38D547F1232C8DF35A61 /* Build configuration list for PBXNativeTarget "ZSKImageEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DA3EB743F0A4D283F3B612F5C1B8AD3 /* Debug */,
+				0E8BBF4AB06FB5C1502414C505EF47DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

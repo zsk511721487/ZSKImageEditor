@@ -1,0 +1,16 @@
+PODS:
+  - ZSKImageEditor (0.1.0)
+
+DEPENDENCIES:
+  - ZSKImageEditor (from `../`)
+
+EXTERNAL SOURCES:
+  ZSKImageEditor:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ZSKImageEditor: 95a3a1dbd4926af45df6574ed3b51e48c2cec004
+
+PODFILE CHECKSUM: bc2823733f90cfe4e5a2598a2db7a0fee4be9b7e
+
+COCOAPODS: 1.11.3
