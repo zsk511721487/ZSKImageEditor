@@ -1,16 +1,23 @@
 PODS:
-  - ZSKImageEditor (0.1.0)
+  - SnapKit (5.6.0)
+  - ZSKImageEditor (0.1.0):
+    - SnapKit
 
 DEPENDENCIES:
   - ZSKImageEditor (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   ZSKImageEditor:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ZSKImageEditor: 95a3a1dbd4926af45df6574ed3b51e48c2cec004
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  ZSKImageEditor: 23eefc3c2650ad3c87bf3ba2218622765569c654
 
-PODFILE CHECKSUM: bc2823733f90cfe4e5a2598a2db7a0fee4be9b7e
+PODFILE CHECKSUM: a79ebf2aefa3011e21a8cd82399978767d7e5e6f
 
 COCOAPODS: 1.11.3

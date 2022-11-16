@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "A short description of ZSKImageEditor.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/张少康/ZSKImageEditor",
+  "homepage": "https://github.com/zsk511721487/ZSKImageEditor",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,21 @@
     "张少康": "511721487@qq.com"
   },
   "source": {
-    "git": "https://github.com/张少康/ZSKImageEditor.git",
+    "git": "https://github.com/zsk511721487/ZSKImageEditor.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "13.0"
   },
-  "source_files": "ZSKImageEditor/Classes/**/*"
+  "source_files": "ZSKImageEditor/Classes/*",
+  "resource_bundles": {
+    "ZSKImageEditor": [
+      "ZSKImageEditor/Assets/Images/**/*.png"
+    ]
+  },
+  "dependencies": {
+    "SnapKit": [
+
+    ]
+  }
 }

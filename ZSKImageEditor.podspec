@@ -28,15 +28,15 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/zsk511721487/ZSKImageEditor.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
 
-  s.source_files = 'ZSKImageEditor/Classes/**/*'
+  s.source_files = 'ZSKImageEditor/Classes/*'
   
-  # s.resource_bundles = {
-  #   'ZSKImageEditor' => ['ZSKImageEditor/Assets/*.png']
-  # }
-
+  s.resource_bundles = {
+    'ZSKImageEditor' => ['ZSKImageEditor/Assets/Images/**/*.png']
+  }
+   
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+   s.dependency 'SnapKit'
 end
