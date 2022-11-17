@@ -112,7 +112,7 @@ extension UIImage {
 
             return self
         }
-    
+        
     /**
      *  重设图片大小
      */

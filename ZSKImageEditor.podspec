@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '13.0'
 
-  s.source_files = 'ZSKImageEditor/Classes/*'
+  s.source_files = 'ZSKImageEditor/Classes/**/*'
   
   s.resource_bundles = {
     'ZSKImageEditor' => ['ZSKImageEditor/Assets/Images/**/*.png']

@@ -18,7 +18,7 @@
   "platforms": {
     "ios": "13.0"
   },
-  "source_files": "ZSKImageEditor/Classes/*",
+  "source_files": "ZSKImageEditor/Classes/**/*",
   "resource_bundles": {
     "ZSKImageEditor": [
       "ZSKImageEditor/Assets/Images/**/*.png"

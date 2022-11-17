@@ -48,6 +48,7 @@ open class ZSKImageEditorViewController: UIViewController {
             historyArray.append(originalImage)
         }
         createMenuView()
+        
     }
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,10 +58,12 @@ open class ZSKImageEditorViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
     private func createMenuView() {
         menuView = ZSKImageEditorMenuView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - safeAreaBottom() - 60, width: UIScreen.main.bounds.width, height: 60 + safeAreaBottom()))
         menuView?.rotateButton.addTarget(self, action: #selector(rotateButtonAction), for: .touchUpInside)
         menuView?.mosaicButton.addTarget(self, action: #selector(mosaicButtonAction), for: .touchUpInside)
+        menuView?.cropButton.addTarget(self, action: #selector(cropButtonAction), for: .touchUpInside)
         self.view.addSubview(menuView!)
     }
     
@@ -92,13 +95,27 @@ extension ZSKImageEditorViewController {
         historyArray.append(newImage!)
         imageView?.image = newImage
         resetImageViewFrame()
-    }
+    }   
     
     @objc public func mosaicButtonAction() {
         self.editEnable = true
-        
+        //获取马赛开图片
+        func getMosaicImage(currentImage: UIImage) -> UIImage {
+            let rotateImage = currentImage
+            let filter = CIFilter(name: "CIPixellate")!
+            let inputImage = CIImage(image: rotateImage)
+            filter.setValue(inputImage, forKey: kCIInputImageKey)
+            filter.setValue(22, forKey: kCIInputScaleKey) //值越大马赛克就越大(使用默认)
+            let fullPixellatedImage: CIImage = filter.value(forKey: kCIOutputImageKey) as! CIImage
+            let context = CIContext()
+            let cgImage = context.createCGImage(fullPixellatedImage, from: fullPixellatedImage.extent)
+            let image = UIImage(cgImage: cgImage!)
+            return image
+        }
+        //之所以使用截屏的方式获取图片，是因为某些图片生成马赛克图片后旋转尺寸不对。
+        let currentImage = imageView?.screenshotImage()
         let rect = self.imageView!.layer.convert(self.imageView!.bounds, to: self.view.layer)
-        let mosaicMaskView = ZSKImageEditorMosaicMaskView(frame: rect, originalImage: (self.historyArray.last!))
+        let mosaicMaskView = ZSKImageEditorMosaicMaskView(frame: rect, originalImage: currentImage!,image: getMosaicImage(currentImage: currentImage! ))
         view.addSubview(mosaicMaskView)
         
         let mosaicView = ZSKImageEditorMosaicEditView()
@@ -108,11 +125,10 @@ extension ZSKImageEditorViewController {
         }
         mosaicView.finishBlock = { [weak self] in
             self?.editEnable = false
-//            if let newImage =  mosaicMaskView.outputImage(originalImage: (self?.historyArray.last!)!) {
-//                self?.historyArray.append(newImage)
-//                self?.imageView?.image = newImage
-//                self?.resetImageViewFrame()
-//            }
+            let image = mosaicMaskView.screenshotImage()
+            self?.historyArray.append(image)
+            self?.imageView?.image = image
+            self?.resetImageViewFrame()
             mosaicMaskView.removeFromSuperview()
         }
         view.addSubview(mosaicView)
@@ -125,6 +141,32 @@ extension ZSKImageEditorViewController {
             mosaicView?.transform3D = CATransform3DMakeTranslation(0, -(safeAreaBottom() + 60 + 50), 0)
         }
       
+    }
+    
+    @objc func cropButtonAction() {
+        let image = imageView?.screenshotImage()
+        var config = Config()
+        config.cropMode = .async
+        config.cropToolbarConfig.toolbarButtonOptions = [.clockwiseRotate]
+        let cropVC = CropViewController(image: image!,
+                                        config: config)
+        cropVC.delegate = self
+//        cropVC.config.presetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 16.0 / 9.0)
+        self.present(cropVC, animated: true)
+    }
+}
+
+extension ZSKImageEditorViewController: CropViewControllerDelegate {
+    public func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
+        self.dismiss(animated: true)
+    }
+    
+    
+    public func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage, transformation: Transformation, cropInfo: CropInfo) {
+        historyArray.append(cropped)
+        imageView?.image = cropped
+        resetImageViewFrame()
+        self.dismiss(animated: true)
     }
 }
 

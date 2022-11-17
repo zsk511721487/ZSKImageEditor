@@ -146,16 +146,9 @@ class ZSKImageEditorMosaicMaskView: UIView {
     
     private var originalImage: UIImage!
     
-    private var mosaicImage: UIImage!
-    
-    private var mosaicImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        return iv
-    }()
     private var originalImageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
         return iv
     }()
     
@@ -163,23 +156,21 @@ class ZSKImageEditorMosaicMaskView: UIView {
         return CIContext(options: nil)
     }()
     
-    init(frame: CGRect, originalImage: UIImage) {
+    init(frame: CGRect, originalImage: UIImage, image: UIImage) {
         super.init(frame: frame)
-        backgroundColor = .clear
-        self.originalImage = originalImage.copy() as! UIImage?
-        self.addSubview(mosaicImageView)
-        mosaicImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        self.originalImage = originalImage
+
         self.addSubview(originalImageView)
-        originalImageView.image = originalImage
+        originalImageView.image = self.originalImage
         originalImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        getMosaicImage()
-        
+
         imageLayer = CALayer()
         imageLayer?.frame = self.bounds
+        imageLayer?.contents = image.cgImage
+        self.layer.addSublayer(imageLayer!)
+//        getMosaicImage()
         
         shapeLayer = CAShapeLayer()
         shapeLayer?.frame = self.bounds
@@ -188,25 +179,45 @@ class ZSKImageEditorMosaicMaskView: UIView {
         shapeLayer?.lineWidth = 20
         shapeLayer?.strokeColor = UIColor.blue.cgColor
         shapeLayer?.fillColor = nil
-        
+
         self.layer.addSublayer(self.shapeLayer!)
         self.imageLayer?.mask = self.shapeLayer
-        
+
         let pathRef = CGMutablePath()
         path = pathRef.mutableCopy()
+        
+        
     }
     
-    func getMosaicImage() {
-        let filter = CIFilter(name: "CIPixellate")!
-        let inputImage = CIImage(image: originalImage)
-        filter.setValue(inputImage, forKey: kCIInputImageKey)
-        filter.setValue(22, forKey: kCIInputScaleKey) //值越大马赛克就越大(使用默认)
-        let fullPixellatedImage = filter.outputImage
-         
-        let cgImage = context.createCGImage(fullPixellatedImage!,
-                                            from: fullPixellatedImage!.extent)
-        mosaicImage = UIImage(cgImage: cgImage!)
-        self.mosaicImageView.image = mosaicImage
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        let touch = (touches.first as AnyObject)
+        let point = touch.location(in: self)
+        self.path?.move(to: point)
+        let path = self.path!.mutableCopy()
+        self.shapeLayer?.path = path
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        let touch = (touches.first as AnyObject)
+        print("touchesMoved数量:\(touches.count)")
+        let point = touch.location(in: self)
+        self.path?.addLine(to: point)
+        let path = self.path!.mutableCopy()
+        
+        let currentContext = UIGraphicsGetCurrentContext()
+        if currentContext == nil {
+            UIGraphicsBeginImageContextWithOptions(self.frame.size, true, 0)
+        }
+        currentContext?.addPath(path!)
+        UIColor.blue.setStroke()
+        currentContext?.drawPath(using: .stroke)
+        self.shapeLayer?.path = path
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
     }
     
     required init?(coder: NSCoder) {
@@ -216,8 +227,6 @@ class ZSKImageEditorMosaicMaskView: UIView {
     deinit {
         
     }
-    
-    
 
     func outputImage() -> UIImage? {
         var graffitiImage: UIImage? = nil
