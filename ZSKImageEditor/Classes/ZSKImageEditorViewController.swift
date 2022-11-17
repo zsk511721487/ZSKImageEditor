@@ -38,6 +38,7 @@ open class ZSKImageEditorViewController: UIViewController {
             make.height.equalTo(44 + safeAreaTop())
         }
         navView.backButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
+        navView.finishButton.addTarget(self, action: #selector(finishButtonAction), for: .touchUpInside)
         scrollview.frame = CGRect(x: 0, y: safeAreaTop() + 44, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaBottom() - safeAreaTop() - 72 - 44)
         self.view.addSubview(scrollview)
         if imageView == nil {
@@ -48,13 +49,25 @@ open class ZSKImageEditorViewController: UIViewController {
             historyArray.append(originalImage)
         }
         createMenuView()
-        
     }
+
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    
     @objc func backButtonAction() {
+        if let window = UIApplication.shared.keyWindow {
+            UIView.removeGreyFilterToView(view: window)
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func finishButtonAction() {
+        if let window = UIApplication.shared.keyWindow {
+            UIView.removeGreyFilterToView(view: window)
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -64,6 +77,7 @@ open class ZSKImageEditorViewController: UIViewController {
         menuView?.rotateButton.addTarget(self, action: #selector(rotateButtonAction), for: .touchUpInside)
         menuView?.mosaicButton.addTarget(self, action: #selector(mosaicButtonAction), for: .touchUpInside)
         menuView?.cropButton.addTarget(self, action: #selector(cropButtonAction), for: .touchUpInside)
+        menuView?.blackwhiteButton.addTarget(self, action: #selector(blackwhiteButtonAction), for: .touchUpInside)
         self.view.addSubview(menuView!)
     }
     
@@ -85,6 +99,9 @@ open class ZSKImageEditorViewController: UIViewController {
     
     deinit {
         print("ZSKImageEditorViewController deinit" )
+        if let window = UIApplication.shared.keyWindow {
+            UIView.removeGreyFilterToView(view: window)
+        }
     }
 }
 
@@ -113,7 +130,7 @@ extension ZSKImageEditorViewController {
             return image
         }
         //之所以使用截屏的方式获取图片，是因为某些图片生成马赛克图片后旋转尺寸不对。
-        let currentImage = imageView?.screenshotImage()
+        let currentImage = historyArray.last
         let rect = self.imageView!.layer.convert(self.imageView!.bounds, to: self.view.layer)
         let mosaicMaskView = ZSKImageEditorMosaicMaskView(frame: rect, originalImage: currentImage!,image: getMosaicImage(currentImage: currentImage! ))
         view.addSubview(mosaicMaskView)
@@ -144,21 +161,54 @@ extension ZSKImageEditorViewController {
     }
     
     @objc func cropButtonAction() {
-        let image = imageView?.screenshotImage()
+        let image = historyArray.last
         var config = Config()
         config.cropMode = .async
         config.cropToolbarConfig.toolbarButtonOptions = [.clockwiseRotate]
         let cropVC = CropViewController(image: image!,
                                         config: config)
+        cropVC.modalPresentationStyle = .fullScreen
         cropVC.delegate = self
 //        cropVC.config.presetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 16.0 / 9.0)
-        self.present(cropVC, animated: true)
+        self.present(cropVC, animated: false)
+    }
+    
+    @objc func blackwhiteButtonAction() {
+//        if menuView!.blackwhiteButton.isSelected {
+//            _ = historyArray.popLast()
+//            menuView!.blackwhiteButton.isSelected.toggle()
+//            let image =  historyArray.last
+//            historyArray.append(image!)
+//            imageView?.image = image
+//            resetImageViewFrame()
+//            return
+//        }
+//        let image = imageView?.screenshotImage()
+//        let ciImage = CIImage(image: image!)
+//        let fiter = CIFilter(name: "CIPhotoEffectNoir")
+//        fiter?.setValue(ciImage, forKey: kCIInputImageKey)
+//        let context = CIContext(options: nil)
+//        let outPutImage = fiter?.outputImage
+//        let outPutCgImage = context.createCGImage(outPutImage!, from: outPutImage!.extent)
+//        let blackImage = UIImage(cgImage: outPutCgImage!)
+//        historyArray.append(blackImage)
+//        imageView?.image = blackImage
+//        resetImageViewFrame()
+//        menuView?.blackwhiteButton.isSelected = true
+        menuView?.blackwhiteButton.isSelected.toggle()
+        if let window = UIApplication.shared.keyWindow {
+            if menuView!.blackwhiteButton.isSelected {
+                UIView.addGreyFilterToView(view: window)
+            }else {
+                UIView.removeGreyFilterToView(view: window)
+            }
+        }
     }
 }
 
 extension ZSKImageEditorViewController: CropViewControllerDelegate {
     public func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
-        self.dismiss(animated: true)
+        self.dismiss(animated: false)
     }
     
     
@@ -166,7 +216,7 @@ extension ZSKImageEditorViewController: CropViewControllerDelegate {
         historyArray.append(cropped)
         imageView?.image = cropped
         resetImageViewFrame()
-        self.dismiss(animated: true)
+        self.dismiss(animated: false)
     }
 }
 

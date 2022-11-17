@@ -14,4 +14,22 @@ extension UIView{
             layer.render(in: rendererContext.cgContext)
         }
     }
+    
+    static func addGreyFilterToView(view: UIView, rect: CGRect? = nil) {
+        view.isUserInteractionEnabled = true
+        let frame = rect == nil ? view.bounds : rect!
+        let coverView = UIView(frame: frame)
+        coverView.isUserInteractionEnabled = false
+        coverView.backgroundColor = UIColor.lightGray
+        coverView.tag = 1010101010
+        coverView.layer.compositingFilter = "saturationBlendMode"
+        coverView.layer.zPosition = CGFloat.greatestFiniteMagnitude
+        view.addSubview(coverView)
+    }
+    
+    static func removeGreyFilterToView(view: UIView) {
+        if let coverView = view.viewWithTag(1010101010) {
+            coverView.removeFromSuperview()
+        }
+    }
 }

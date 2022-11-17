@@ -17,7 +17,7 @@
 		0C57141D129554EB053DBD890E61087E /* CGImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256E352BC0F08FAE1847FFC60EC5917F /* CGImageExtensions.swift */; };
 		0CFFA852DDB7122869B2364C7F938481 /* CropToolbarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE917F916D9E5A9DF1E0FFDCAAEC5608 /* CropToolbarConfig.swift */; };
 		10C0390CCA9C4EC1B46722BE063CAD9C /* UIImage+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A35F960842A599B2E5F0F5627767A53 /* UIImage+TextStyle.swift */; };
-		14C4217F3F31BA2FFADF01C9FA3F427E /* ZSKImageEditor-ZSKImageEditor in Resources */ = {isa = PBXBuildFile; fileRef = 1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */; };
+		14C4217F3F31BA2FFADF01C9FA3F427E /* ZSKImageEditor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor.bundle */; };
 		1515B9177773B0EEA2F569B6A27A3203 /* ZSKImageEditorMosaicEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42C60B9EF52383A24E208BCB81F823 /* ZSKImageEditorMosaicEditView.swift */; };
 		183D8B3E057B885EA7DF9A8CDCCE9029 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8251A08ED8E6CF34420BBF858126F7 /* ConstraintMakerRelatable.swift */; };
 		210E87F0F958003D4459C39193B6BB7C /* RatioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDED82BD3BDD5F39C5F7EE634F1D97A /* RatioPresenter.swift */; };
@@ -181,7 +181,7 @@
 		0EE5F8CB92905AE76169A71226B44035 /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
 		10F3246C257563411326499B01E0CAA0 /* zskimgedit_menu_rotate_icon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zskimgedit_menu_rotate_icon@3x.png"; path = "ZSKImageEditor/Assets/Images/ZSKImageEdtior.bundle/zskimgedit_menu_rotate_icon@3x.png"; sourceTree = "<group>"; };
 		1326C340E0294DB384881B6913C220BD /* RotationDialViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RotationDialViewModel.swift; sourceTree = "<group>"; };
-		1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "ZSKImageEditor-ZSKImageEditor"; path = ZSKImageEditor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZSKImageEditor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		143498449916D71708A8AF2F96E7320A /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		14A11E4B5A0BECBFA710F9FC912DB326 /* ZSKImageEditor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ZSKImageEditor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		152EE8343B4F64CFDE73F65CEF14A13F /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Sources/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
@@ -612,7 +612,7 @@
 				0CD1FCD7B2335DFC7DFCEEC83D258653 /* Pods-ZSKImageEditor_Tests */,
 				979486118B3E90C08386079D57962701 /* SnapKit */,
 				4DEEF918B7463CFC34628CE5B2B97DA1 /* ZSKImageEditor */,
-				1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */,
+				1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -756,7 +756,7 @@
 			);
 			name = "ZSKImageEditor-ZSKImageEditor";
 			productName = ZSKImageEditor;
-			productReference = 1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */;
+			productReference = 1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		2BC2E03BF48CD05E524E7E909F929D17 /* Pods-ZSKImageEditor_Example */ = {
@@ -826,6 +826,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					21DD7C46C6A62ED8ED8211A13B9CA3CE = {
+						DevelopmentTeam = M9K63MB4KS;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -913,7 +918,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14C4217F3F31BA2FFADF01C9FA3F427E /* ZSKImageEditor-ZSKImageEditor in Resources */,
+				14C4217F3F31BA2FFADF01C9FA3F427E /* ZSKImageEditor.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1450,6 +1455,7 @@
 			baseConfigurationReference = 0CCFDA35865007242317C6A0F60CDCC4 /* ZSKImageEditor.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ZSKImageEditor";
+				DEVELOPMENT_TEAM = M9K63MB4KS;
 				IBSC_MODULE = ZSKImageEditor;
 				INFOPLIST_FILE = "Target Support Files/ZSKImageEditor/ResourceBundle-ZSKImageEditor-ZSKImageEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1501,6 +1507,7 @@
 			baseConfigurationReference = DF03838304D39BE4FE0088BD3FA3C530 /* ZSKImageEditor.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ZSKImageEditor";
+				DEVELOPMENT_TEAM = M9K63MB4KS;
 				IBSC_MODULE = ZSKImageEditor;
 				INFOPLIST_FILE = "Target Support Files/ZSKImageEditor/ResourceBundle-ZSKImageEditor-ZSKImageEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
