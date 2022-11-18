@@ -27,9 +27,10 @@ TODO: Add long description of the pod here.
   s.author           = { '张少康' => '511721487@qq.com' }
   s.source           = { :git => 'https://github.com/zsk511721487/ZSKImageEditor.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.requires_arc          = true
   s.ios.deployment_target = '13.0'
-
+  s.swift_version         = '5.0'
+  
   s.source_files = 'ZSKImageEditor/Classes/**/*'
   
   s.resource_bundles = {
