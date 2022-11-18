@@ -43,6 +43,7 @@
 		50059EBFEEE8F743F1291B5232511822 /* ZSKImageEditorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF33CFFEB36A04FC1F8F32C9E262C /* ZSKImageEditorButton.swift */; };
 		5167DA376E70C692228F14020028EC5F /* zskeditor_back_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4A80DA901A83E87990B05EC9E6D5E6 /* zskeditor_back_icon@3x.png */; };
 		5380454C48A12A6E376122ABD8096968 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0BC61944B3E89515CACB83BB1B976 /* ConstraintDescription.swift */; };
+		53DE801229276EFE00916643 /* UIImage+zskFixOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DE801129276EFE00916643 /* UIImage+zskFixOrientation.swift */; };
 		55D047F61BDB4EC5A8715663ED83D588 /* RotationDialPlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B42531F51665052EE07F808E1FD420 /* RotationDialPlate.swift */; };
 		55E51F45F1E157D3B4942BA7252C277E /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF34962F54DAA8DEB0A1D7D4F3FC09A /* ConstraintRelatableTarget.swift */; };
 		56074DB09B834E4840EAC06499CFE441 /* zskimgedit_menu_rotate_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D78FBD692E975356ED0691CC5AC63630 /* zskimgedit_menu_rotate_icon@2x.png */; };
@@ -188,13 +189,13 @@
 		11EB4A2E3F88078FB1AE593678568444 /* thumb_image_icon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "thumb_image_icon@3x.png"; path = "ZSKImageEditor/Assets/Images/ZSKImageEdtior.bundle/thumb_image_icon@3x.png"; sourceTree = "<group>"; };
 		13256CEB7A1A4EFFB0259E17192089AD /* RotationCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RotationCalculator.swift; sourceTree = "<group>"; };
 		1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "ZSKImageEditor-ZSKImageEditor"; path = ZSKImageEditor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		13BA79D9E17EDF17A79CD1B88F506B42 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		13BA79D9E17EDF17A79CD1B88F506B42 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		143498449916D71708A8AF2F96E7320A /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		152EE8343B4F64CFDE73F65CEF14A13F /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Sources/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		15756CB92532FE3116BF4F464256F898 /* Pods-ZSKImageEditor_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZSKImageEditor_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		159A28A6362A173472DF5F43FFA75795 /* ZSKImageEditorMosaicEditView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZSKImageEditorMosaicEditView.swift; path = ZSKImageEditor/Classes/ZSKImageEditorMosaicEditView.swift; sourceTree = "<group>"; };
 		1D78235C926877DA516AE4D99B8F8D9A /* ZSKImageEditor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZSKImageEditor-dummy.m"; sourceTree = "<group>"; };
-		2160540C8873CA560D7436619578B4EC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2160540C8873CA560D7436619578B4EC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2198EA5C4A82BD60AEAE388F59D26C7D /* DialConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DialConfig.swift; sourceTree = "<group>"; };
 		239BB6950F3A04FB33ED60C4A1319409 /* CropViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CropViewModel.swift; sourceTree = "<group>"; };
 		23B80AFD5C1700EAF97345A8B32ED43B /* ZSKImageEditor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ZSKImageEditor-Info.plist"; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 		5032FD34D5BB9A1F925C649B43CC02DC /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Sources/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		517480044D3F56FDF5805C22B053F6B1 /* zskimgedit_menu_close_icon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zskimgedit_menu_close_icon@3x.png"; path = "ZSKImageEditor/Assets/Images/ZSKImageEdtior.bundle/zskimgedit_menu_close_icon@3x.png"; sourceTree = "<group>"; };
 		53A2A59087A04CC32545819A5296F287 /* FixedRatioManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FixedRatioManager.swift; sourceTree = "<group>"; };
+		53DE801129276EFE00916643 /* UIImage+zskFixOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImage+zskFixOrientation.swift"; path = "ZSKImageEditor/Classes/UIImage+zskFixOrientation.swift"; sourceTree = "<group>"; };
 		549032E094F174D9220C354C9475F539 /* Pods-ZSKImageEditor_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZSKImageEditor_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		54A0BC61944B3E89515CACB83BB1B976 /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Sources/ConstraintDescription.swift; sourceTree = "<group>"; };
 		54F872F93E3C3E6FA7D1A8D1DC5737ED /* zskimgedit_menu_crop_icon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zskimgedit_menu_crop_icon@2x.png"; path = "ZSKImageEditor/Assets/Images/ZSKImageEdtior.bundle/zskimgedit_menu_crop_icon@2x.png"; sourceTree = "<group>"; };
@@ -263,13 +265,13 @@
 		9B89C1DDA3C54FD1225D77F54F674588 /* Pods-ZSKImageEditor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ZSKImageEditor_Example.modulemap"; sourceTree = "<group>"; };
 		9BB6C17BA8A205E359816E9B3211CF4A /* Pods-ZSKImageEditor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZSKImageEditor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CDCCD481ECEDCBE2E48F7458B928093 /* CropVisualEffectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CropVisualEffectView.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F0A527ED8F0A719FF610D743A87DAD3 /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPrioritizable.swift; path = Sources/ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
 		A039B619896BA12C14235DB2DB2A2768 /* Pods-ZSKImageEditor_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZSKImageEditor_Example-dummy.m"; sourceTree = "<group>"; };
 		A2C88B6AB5971A4EDD4C9E0A5EE1C696 /* LocalizedHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalizedHelper.swift; sourceTree = "<group>"; };
 		A6DAF33CFFEB36A04FC1F8F32C9E262C /* ZSKImageEditorButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZSKImageEditorButton.swift; path = ZSKImageEditor/Classes/ZSKImageEditorButton.swift; sourceTree = "<group>"; };
 		AC5A5C2AED03BD64EE53578C76935E3C /* zskimgedit_menu_close_icon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zskimgedit_menu_close_icon@2x.png"; path = "ZSKImageEditor/Assets/Images/ZSKImageEdtior.bundle/zskimgedit_menu_close_icon@2x.png"; sourceTree = "<group>"; };
-		AC762ECE9DB850606FF5FEBB6BC71F15 /* ZSKImageEditor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ZSKImageEditor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AC762ECE9DB850606FF5FEBB6BC71F15 /* ZSKImageEditor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ZSKImageEditor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B13FE5D4908661CBF9B8D3B6211D0DB9 /* Pods-ZSKImageEditor_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZSKImageEditor_Tests-dummy.m"; sourceTree = "<group>"; };
 		B574BCAA56B8063CCB78F4CB24FDA6B4 /* zskeditor_back_icon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zskeditor_back_icon@2x.png"; path = "ZSKImageEditor/Assets/Images/ZSKImageEdtior.bundle/zskeditor_back_icon@2x.png"; sourceTree = "<group>"; };
 		B57B4B15AAC3AB24B43306829FAA77A0 /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Sources/ConstraintPriority.swift; sourceTree = "<group>"; };
@@ -392,7 +394,6 @@
 				A2C88B6AB5971A4EDD4C9E0A5EE1C696 /* LocalizedHelper.swift */,
 				089F2E0DD681DE4425081A547CCF8D10 /* Orientation.swift */,
 			);
-			name = Helpers;
 			path = Helpers;
 			sourceTree = "<group>";
 		};
@@ -411,6 +412,7 @@
 				11EB4A2E3F88078FB1AE593678568444 /* thumb_image_icon@3x.png */,
 				F881D24E2D40AC456AD50204DBB3482B /* UIColor+darChange.swift */,
 				0EFB521C6562F97D18F0C47D82587DEE /* UIImage+TextStyle.swift */,
+				53DE801129276EFE00916643 /* UIImage+zskFixOrientation.swift */,
 				0957E09E6FD85614E63DC4774F82E914 /* UIView+screenshot.swift */,
 				B574BCAA56B8063CCB78F4CB24FDA6B4 /* zskeditor_back_icon@2x.png */,
 				3A4A80DA901A83E87990B05EC9E6D5E6 /* zskeditor_back_icon@3x.png */,
@@ -449,7 +451,6 @@
 				9A80A7BC7B09B690AF8B0BD28282B96D /* CoreGraphicsExtensions.swift */,
 				EA7A41118C10D9294B39EF77E61A41D8 /* UIImageExtensions.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -498,7 +499,6 @@
 				3EAC18594129B2913D0EA0C189C776FE /* ToolBarButtonImageBuilder.swift */,
 				E8DF9C9169B99A9EE0B986B92F9A0C4F /* ToolBarButtonImageBuilder+DrawImage.swift */,
 			);
-			name = CropViewController;
 			path = CropViewController;
 			sourceTree = "<group>";
 		};
@@ -551,7 +551,6 @@
 				78B42531F51665052EE07F808E1FD420 /* RotationDialPlate.swift */,
 				889CD20F9214C3D1D4C1AB4BB9DCDCED /* RotationDialViewModel.swift */,
 			);
-			name = RotationDial;
 			path = RotationDial;
 			sourceTree = "<group>";
 		};
@@ -570,7 +569,6 @@
 				C9ADBAD0607A1BC9472E88BEFAB49033 /* CropViewStatus.swift */,
 				D72F06D2636A08A72D9FE4FDCC2F50C0 /* ImageContainer.swift */,
 			);
-			name = CropView;
 			path = CropView;
 			sourceTree = "<group>";
 		};
@@ -581,7 +579,6 @@
 				3823302994771C52C685AB6835BF38B1 /* CropMaskProtocal.swift */,
 				9CDCCD481ECEDCBE2E48F7458B928093 /* CropVisualEffectView.swift */,
 			);
-			name = MaskBackground;
 			path = MaskBackground;
 			sourceTree = "<group>";
 		};
@@ -639,7 +636,6 @@
 				152EE8343B4F64CFDE73F65CEF14A13F /* UILayoutSupport+Extensions.swift */,
 				403EB05A3920652EED411213C52E3AC2 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -929,6 +925,7 @@
 				7587BAA2098FA7F4C16144EBDD9FB815 /* CropBoxLockedAspectFrameUpdater.swift in Sources */,
 				0A4A9EE65B9DDD292FDB9DC6231DA50E /* CropDimmingView.swift in Sources */,
 				6E182E50D584933B0EEE74522A64230E /* CropMaskProtocal.swift in Sources */,
+				53DE801229276EFE00916643 /* UIImage+zskFixOrientation.swift in Sources */,
 				F469BB42D2582DFF9EA53604C4D63FED /* CropMaskViewManager.swift in Sources */,
 				47B90F20E4AFD35972682E96B3A5F53A /* CropOverlayView.swift in Sources */,
 				EAF3A037D46875E8BB1B6E3D6014A8D6 /* CropScrollView.swift in Sources */,
@@ -1420,8 +1417,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

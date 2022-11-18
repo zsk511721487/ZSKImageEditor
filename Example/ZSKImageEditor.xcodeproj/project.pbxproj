@@ -46,7 +46,7 @@
 		C25186B8C61A08E84F79B38C /* Pods-ZSKImageEditor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSKImageEditor_Example.release.xcconfig"; path = "Target Support Files/Pods-ZSKImageEditor_Example/Pods-ZSKImageEditor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		DD45EB279F543F48910834D0 /* Pods-ZSKImageEditor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSKImageEditor_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ZSKImageEditor_Tests/Pods-ZSKImageEditor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F4303A83FB8AB2D7A04AD9AF /* Pods_ZSKImageEditor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZSKImageEditor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F557A3AE73B3D9B4EA7F64AC /* ZSKImageEditor.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZSKImageEditor.podspec; path = ../ZSKImageEditor.podspec; sourceTree = "<group>"; };
+		F557A3AE73B3D9B4EA7F64AC /* ZSKImageEditor.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZSKImageEditor.podspec; path = ../ZSKImageEditor.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

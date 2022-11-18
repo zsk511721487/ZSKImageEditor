@@ -14,7 +14,7 @@ import UIKit
 extension ZSKImageEditorViewController {
     public convenience init(originalImage: UIImage) {
         self.init()
-        self.originalImage = originalImage
+        self.originalImage = originalImage.zsk_fixOrientation()
     }
 }
 
@@ -150,7 +150,7 @@ extension ZSKImageEditorViewController {
             return image
         }
         //之所以使用截屏的方式获取图片，是因为某些图片生成马赛克图片后旋转尺寸不对。
-        let currentImage = imageView?.screenshotImage()
+        let currentImage = imageView?.image
         let rect = self.imageView!.layer.convert(self.imageView!.bounds, to: self.view.layer)
         let mosaicMaskView = ZSKImageEditorMosaicMaskView(frame: rect, originalImage: currentImage!,image: getMosaicImage(currentImage: currentImage! ))
         view.addSubview(mosaicMaskView)
@@ -182,7 +182,7 @@ extension ZSKImageEditorViewController {
     }
     
     @objc func cropButtonAction() {
-        let image = historyArray.last
+        let image = imageView?.image
         var config = Config()
         config.cropMode = .async
         config.cropToolbarConfig.toolbarButtonOptions = [.clockwiseRotate]
