@@ -73,17 +73,21 @@ open class ZSKImageEditorViewController: UIViewController {
         if let window = UIApplication.shared.keyWindow {
             UIView.removeGreyFilterToView(view: window)
         }
-
-        let image = historyArray.last
-        let ciImage = CIImage(image: image!)
-        let fiter = CIFilter(name: "CIPhotoEffectNoir")
-        fiter?.setValue(ciImage, forKey: kCIInputImageKey)
-        let context = CIContext(options: nil)
-        let outPutImage = fiter?.outputImage
-        let outPutCgImage = context.createCGImage(outPutImage!, from: outPutImage!.extent)
-        let blackImage = UIImage(cgImage: outPutCgImage!)
+        
+        let currentImage = imageView?.screenshotImage()
+        var originalImage = currentImage
+        if menuView!.blackwhiteButton.isSelected {
+            let ciImage = CIImage(image: currentImage!)
+            let fiter = CIFilter(name: "CIPhotoEffectNoir")
+            fiter?.setValue(ciImage, forKey: kCIInputImageKey)
+            let context = CIContext(options: nil)
+            let outPutImage = fiter?.outputImage
+            let outPutCgImage = context.createCGImage(outPutImage!, from: outPutImage!.extent)
+            originalImage = UIImage(cgImage: outPutCgImage!)
+        }
+        
         if delegate != nil {
-            delegate?.zskImageEdit(editor: self, finish: blackImage)
+            delegate?.zskImageEdit(editor: self, finish: originalImage)
         }
         self.navigationController?.popViewController(animated: true)
     }
