@@ -95,7 +95,7 @@ extension UIImage {
     //黑白滤镜效果
     func noir() -> UIImage?
     {
-        let imageData = UIImagePNGRepresentation(self)
+        let imageData = self.pngData()
         let inputImage = CoreImage.CIImage(data: imageData!)
         let context = CIContext(options:nil)
         let filter = CIFilter(name:"CIPhotoEffectNoir")

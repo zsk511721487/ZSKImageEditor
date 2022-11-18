@@ -174,8 +174,8 @@ class ZSKImageEditorMosaicMaskView: UIView {
         
         shapeLayer = CAShapeLayer()
         shapeLayer?.frame = self.bounds
-        shapeLayer?.lineCap = kCALineCapRound
-        shapeLayer?.lineJoin = kCALineJoinRound
+        shapeLayer?.lineCap = CAShapeLayerLineCap.round
+        shapeLayer?.lineJoin = CAShapeLayerLineJoin.round
         shapeLayer?.lineWidth = 20
         shapeLayer?.strokeColor = UIColor.blue.cgColor
         shapeLayer?.fillColor = nil

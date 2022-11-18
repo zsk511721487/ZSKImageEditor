@@ -119,7 +119,7 @@ extension CropMaskProtocol {
         
         let fillLayer = CAShapeLayer()
         fillLayer.path = path.cgPath
-        fillLayer.fillRule = kCAFillRuleEvenOdd
+        fillLayer.fillRule = .evenOdd
         fillLayer.fillColor = UIColor.black.cgColor
         fillLayer.opacity = opacity
         return fillLayer

@@ -15,18 +15,22 @@
     "git": "https://github.com/zsk511721487/ZSKImageEditor.git",
     "tag": "0.1.0"
   },
+  "requires_arc": true,
   "platforms": {
     "ios": "13.0"
   },
+  "swift_versions": "5.0",
   "source_files": "ZSKImageEditor/Classes/**/*",
   "resource_bundles": {
     "ZSKImageEditor": [
       "ZSKImageEditor/Assets/Images/**/*.png"
     ]
   },
+  "frameworks": "QuartzCore",
   "dependencies": {
     "SnapKit": [
 
     ]
-  }
+  },
+  "swift_version": "5.0"
 }

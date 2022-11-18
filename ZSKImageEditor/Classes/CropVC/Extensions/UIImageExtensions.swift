@@ -159,7 +159,7 @@ extension UIImage {
             
             if borderWidth > 0 {
                 let edgeInsets = UIEdgeInsets(top: borderWidth, left: borderWidth, bottom: borderWidth, right: borderWidth)
-                let innerRect = UIEdgeInsetsInsetRect(rect, edgeInsets)
+                let innerRect = rect.inset(by: edgeInsets)
                 path = pathBuilder(innerRect)
                 borderColor.setStroke()
                 path.lineWidth = borderWidth

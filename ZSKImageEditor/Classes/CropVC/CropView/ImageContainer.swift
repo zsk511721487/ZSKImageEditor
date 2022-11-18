@@ -12,7 +12,7 @@ class ImageContainer: UIView {
 
     lazy private var imageView: UIImageView = {
         let imageView = UIImageView(frame: bounds)
-        imageView.layer.minificationFilter = kCAFilterTrilinear
+        imageView.layer.minificationFilter = .trilinear
         imageView.accessibilityIgnoresInvertColors = true
         imageView.contentMode = .scaleAspectFit
         

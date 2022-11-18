@@ -237,7 +237,7 @@ class CropView: UIView {
         scrollView.contentOffset = CGPoint(x: (imageContainer.frame.width - scrollView.frame.width) / 2,
                                            y: (imageContainer.frame.height - scrollView.frame.height) / 2)
 
-        gridOverlayView.superview?.bringSubview(toFront: gridOverlayView)
+        gridOverlayView.superview?.bringSubviewToFront(gridOverlayView)
         
         setupAngleDashboard()
         
