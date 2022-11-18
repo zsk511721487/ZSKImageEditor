@@ -7,6 +7,10 @@
 
 import UIKit
 
+@objc public protocol ZSKImageEditorViewDelegate: AnyObject {
+    @objc func zskImageEdit(editor vc: ZSKImageEditorViewController, finish editImage: UIImage?)
+}
+
 extension ZSKImageEditorViewController {
     public convenience init(originalImage: UIImage) {
         self.init()
@@ -28,6 +32,7 @@ open class ZSKImageEditorViewController: UIViewController {
         }
     }
     private var historyArray: [UIImage] = []
+    open weak var delegate: ZSKImageEditorViewDelegate?
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
@@ -68,9 +73,20 @@ open class ZSKImageEditorViewController: UIViewController {
         if let window = UIApplication.shared.keyWindow {
             UIView.removeGreyFilterToView(view: window)
         }
+
+        let image = historyArray.last
+        let ciImage = CIImage(image: image!)
+        let fiter = CIFilter(name: "CIPhotoEffectNoir")
+        fiter?.setValue(ciImage, forKey: kCIInputImageKey)
+        let context = CIContext(options: nil)
+        let outPutImage = fiter?.outputImage
+        let outPutCgImage = context.createCGImage(outPutImage!, from: outPutImage!.extent)
+        let blackImage = UIImage(cgImage: outPutCgImage!)
+        if delegate != nil {
+            delegate?.zskImageEdit(editor: self, finish: blackImage)
+        }
         self.navigationController?.popViewController(animated: true)
     }
-    
     
     private func createMenuView() {
         menuView = ZSKImageEditorMenuView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - safeAreaBottom() - 60, width: UIScreen.main.bounds.width, height: 60 + safeAreaBottom()))
@@ -124,13 +140,13 @@ extension ZSKImageEditorViewController {
             filter.setValue(inputImage, forKey: kCIInputImageKey)
             filter.setValue(22, forKey: kCIInputScaleKey) //值越大马赛克就越大(使用默认)
             let fullPixellatedImage: CIImage = filter.value(forKey: kCIOutputImageKey) as! CIImage
-            let context = CIContext()
+            let context = CIContext(options: nil)
             let cgImage = context.createCGImage(fullPixellatedImage, from: fullPixellatedImage.extent)
             let image = UIImage(cgImage: cgImage!)
             return image
         }
         //之所以使用截屏的方式获取图片，是因为某些图片生成马赛克图片后旋转尺寸不对。
-        let currentImage = historyArray.last
+        let currentImage = imageView?.screenshotImage()
         let rect = self.imageView!.layer.convert(self.imageView!.bounds, to: self.view.layer)
         let mosaicMaskView = ZSKImageEditorMosaicMaskView(frame: rect, originalImage: currentImage!,image: getMosaicImage(currentImage: currentImage! ))
         view.addSubview(mosaicMaskView)
@@ -142,10 +158,11 @@ extension ZSKImageEditorViewController {
         }
         mosaicView.finishBlock = { [weak self] in
             self?.editEnable = false
-            let image = mosaicMaskView.screenshotImage()
-            self?.historyArray.append(image)
-            self?.imageView?.image = image
-            self?.resetImageViewFrame()
+            if let image = mosaicMaskView.buildImage() {
+                self?.historyArray.append(image)
+                self?.imageView?.image = image
+                self?.resetImageViewFrame()
+            }
             mosaicMaskView.removeFromSuperview()
         }
         view.addSubview(mosaicView)

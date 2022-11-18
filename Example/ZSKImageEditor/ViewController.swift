@@ -11,7 +11,12 @@ import SnapKit
 import PhotosUI
 import ZSKImageEditor
 
-class ViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+class ViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate, ZSKImageEditorViewDelegate {
+    
+    func zskImageEdit(editor vc: ZSKImageEditor.ZSKImageEditorViewController, finish editImage: UIImage?) {
+        self.imageView.image = editImage
+    }
+    
     
     lazy var backButton: UIButton = {
         let btn = UIButton()
@@ -19,6 +24,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate,UIImagePi
         btn.setTitleColor(.systemPink, for: .normal)
         btn.addTarget(self, action: #selector(selectButtonAction), for: .touchUpInside)
         return btn
+    }()
+    
+    lazy var imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFit
+        iv.layer.masksToBounds = true
+        return iv
     }()
     
     @objc func selectButtonAction() {
@@ -34,7 +46,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate,UIImagePi
         self.view.backgroundColor = .systemBackground
         self.view.addSubview(backButton)
         backButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalTo(150)
+        }
+        self.view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(UIScreen.main.bounds.width - 60)
+            make.height.equalTo(UIScreen.main.bounds.height - 200)
+            make.top.equalTo(backButton.snp.bottom).offset(15)
         }
     }
     
@@ -65,8 +85,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate,UIImagePi
         picker.dismiss(animated: true, completion: nil)
         print("获取的图片info:\(info)")
         let originalImage = info["UIImagePickerControllerOriginalImage"] as! UIImage
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else {return}
             let vc = ZSKImageEditorViewController(originalImage: originalImage)
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

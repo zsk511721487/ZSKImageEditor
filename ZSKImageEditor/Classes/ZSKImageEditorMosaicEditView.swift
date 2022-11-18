@@ -245,4 +245,5 @@ class ZSKImageEditorMosaicMaskView: UIView {
         UIGraphicsEndImageContext()
         return clippedImage
     }
+
 }

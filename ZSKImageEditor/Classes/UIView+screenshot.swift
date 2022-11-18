@@ -9,10 +9,24 @@ import Foundation
 
 extension UIView{
     func screenshotImage() ->UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
-        }
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+        
+//        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+//        return renderer.image { rendererContext in
+//            layer.render(in: rendererContext.cgContext)
+//        }
+    }
+    
+    func buildImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
     
     static func addGreyFilterToView(view: UIView, rect: CGRect? = nil) {
