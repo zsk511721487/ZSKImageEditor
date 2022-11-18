@@ -29,6 +29,7 @@ extension UIView{
         return image
     }
     
+    //添加混合色view
     static func addGreyFilterToView(view: UIView, rect: CGRect? = nil) {
         view.isUserInteractionEnabled = true
         let frame = rect == nil ? view.bounds : rect!
@@ -39,6 +40,13 @@ extension UIView{
         coverView.layer.compositingFilter = "saturationBlendMode"
         coverView.layer.zPosition = CGFloat.greatestFiniteMagnitude
         view.addSubview(coverView)
+    }
+    
+    //更新混色的view的frame
+    static func changeGreyFilterViewRect(view: UIView, rect: CGRect) {
+        if let coverView = view.viewWithTag(1010101010), !coverView.isHidden {
+            coverView.frame = rect
+        }
     }
     
     static func removeGreyFilterToView(view: UIView) {

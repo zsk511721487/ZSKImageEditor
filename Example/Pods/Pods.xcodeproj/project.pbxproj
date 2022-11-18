@@ -129,7 +129,7 @@
 		F953AA9104BFE0C2DAD639EA60104A75 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83141A7BA266489296BCBEF99AC5412 /* ConstraintView+Extensions.swift */; };
 		FAB03959C2357E325B19E08BC4775DAB /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4B3092297166519217A25AD70D5341 /* ConstraintMaker.swift */; };
 		FC069B5ACCB60D8B1910695AA8EA3B66 /* zskimgedit_menu_finish_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3C22EBB65224D8E6B3246B7ECC823B /* zskimgedit_menu_finish_icon@2x.png */; };
-		FEB0ABDCBCAE1A57E9D0D3596419A930 /* ZSKImageEditor-ZSKImageEditor in Resources */ = {isa = PBXBuildFile; fileRef = 1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */; };
+		FEB0ABDCBCAE1A57E9D0D3596419A930 /* ZSKImageEditor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,7 +188,7 @@
 		0EFB521C6562F97D18F0C47D82587DEE /* UIImage+TextStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+TextStyle.swift"; path = "ZSKImageEditor/Classes/UIImage+TextStyle.swift"; sourceTree = "<group>"; };
 		11EB4A2E3F88078FB1AE593678568444 /* thumb_image_icon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "thumb_image_icon@3x.png"; path = "ZSKImageEditor/Assets/Images/ZSKImageEdtior.bundle/thumb_image_icon@3x.png"; sourceTree = "<group>"; };
 		13256CEB7A1A4EFFB0259E17192089AD /* RotationCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RotationCalculator.swift; sourceTree = "<group>"; };
-		1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "ZSKImageEditor-ZSKImageEditor"; path = ZSKImageEditor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZSKImageEditor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BA79D9E17EDF17A79CD1B88F506B42 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		143498449916D71708A8AF2F96E7320A /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		152EE8343B4F64CFDE73F65CEF14A13F /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Sources/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
@@ -655,7 +655,7 @@
 				0CD1FCD7B2335DFC7DFCEEC83D258653 /* Pods-ZSKImageEditor_Tests */,
 				979486118B3E90C08386079D57962701 /* SnapKit */,
 				4DEEF918B7463CFC34628CE5B2B97DA1 /* ZSKImageEditor */,
-				1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */,
+				1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -763,7 +763,7 @@
 			);
 			name = "ZSKImageEditor-ZSKImageEditor";
 			productName = ZSKImageEditor;
-			productReference = 1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor-ZSKImageEditor */;
+			productReference = 1330831DF6AFB02E1E20F159ED12B721 /* ZSKImageEditor.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		2BC2E03BF48CD05E524E7E909F929D17 /* Pods-ZSKImageEditor_Example */ = {
@@ -833,6 +833,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					21DD7C46C6A62ED8ED8211A13B9CA3CE = {
+						DevelopmentTeam = M9K63MB4KS;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -886,7 +891,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEB0ABDCBCAE1A57E9D0D3596419A930 /* ZSKImageEditor-ZSKImageEditor in Resources */,
+				FEB0ABDCBCAE1A57E9D0D3596419A930 /* ZSKImageEditor.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,6 +1123,7 @@
 			baseConfigurationReference = FC61E5462A00640EAAA59F4A9147C9F5 /* ZSKImageEditor.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ZSKImageEditor";
+				DEVELOPMENT_TEAM = M9K63MB4KS;
 				IBSC_MODULE = ZSKImageEditor;
 				INFOPLIST_FILE = "Target Support Files/ZSKImageEditor/ResourceBundle-ZSKImageEditor-ZSKImageEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1428,6 +1434,7 @@
 			baseConfigurationReference = FAA005BBAD8CA2AEAEA529B3870B07FF /* ZSKImageEditor.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ZSKImageEditor";
+				DEVELOPMENT_TEAM = M9K63MB4KS;
 				IBSC_MODULE = ZSKImageEditor;
 				INFOPLIST_FILE = "Target Support Files/ZSKImageEditor/ResourceBundle-ZSKImageEditor-ZSKImageEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

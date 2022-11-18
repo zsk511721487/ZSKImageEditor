@@ -59,6 +59,9 @@ open class ZSKImageEditorViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        if let window = UIApplication.shared.keyWindow {
+            UIView.changeGreyFilterViewRect(view: window, rect: CGRect(x: 0, y: safeAreaTop() + 44, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop() - 44 ))
+        }
     }
     
     
@@ -182,6 +185,9 @@ extension ZSKImageEditorViewController {
     }
     
     @objc func cropButtonAction() {
+        if let window = UIApplication.shared.keyWindow {
+            UIView.changeGreyFilterViewRect(view: window, rect: CGRect(x: 0, y: safeAreaTop(), width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop()))
+        }
         let image = imageView?.image
         var config = Config()
         config.cropMode = .async
@@ -219,7 +225,7 @@ extension ZSKImageEditorViewController {
         menuView?.blackwhiteButton.isSelected.toggle()
         if let window = UIApplication.shared.keyWindow {
             if menuView!.blackwhiteButton.isSelected {
-                UIView.addGreyFilterToView(view: window)
+                UIView.addGreyFilterToView(view: window,rect: CGRect(x: 0, y: safeAreaTop() + 44, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop() - 44))
             }else {
                 UIView.removeGreyFilterToView(view: window)
             }
