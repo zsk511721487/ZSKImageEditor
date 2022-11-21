@@ -11,7 +11,8 @@ class ZSKImageEditorMosaicEditView: UIView {
     
     var closeBlock: (()->Void)?
     var finishBlock: (()->Void)?
-
+    var lineWidthBlock: ((_ width: CGFloat)->Void)?
+    var didselectWidthBlock: (()->Void)?
     lazy var closeButton: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage.loadCurrentAppearanceImage(imageName: "zskimgedit_menu_close_icon"), for: .normal)
@@ -46,13 +47,14 @@ class ZSKImageEditorMosaicEditView: UIView {
     
     lazy var slide: UISlider = {
         let sd = UISlider(frame: CGRect(x: 55, y: 0, width: UIScreen.main.bounds.width - 80, height: 50))
-        sd.minimumValue = 5
+        sd.minimumValue = 10
         sd.maximumValue = 50
         sd.value = 20
         sd.minimumTrackTintColor = .white
         sd.maximumTrackTintColor = .init(hex: "#999999")
         sd.setThumbImage(UIImage.loadCurrentAppearanceImage(imageName: "thumb_image_icon"), for: .normal)
         sd.addTarget(self, action: #selector(slideValueChange(sender:)), for: .valueChanged)
+        sd.addTarget(self, action: #selector(slideValuetouchUpInside), for: .touchUpInside)
         return sd
     }()
     
@@ -63,7 +65,19 @@ class ZSKImageEditorMosaicEditView: UIView {
     }()
     
     @objc func slideValueChange(sender: UISlider) {
-        print(sender.value)
+        if lineWidthBlock != nil {
+            lineWidthBlock!(CGFloat(sender.value))
+        }
+    }
+    
+    @objc func slideValuetouchUpInside() {
+        slide.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.25) {
+            self.slide.isUserInteractionEnabled = true
+        }
+        if didselectWidthBlock != nil {
+            didselectWidthBlock!()
+        }
     }
     
     @objc func closeButtonAction() {
@@ -135,7 +149,6 @@ class ZSKImageEditorMosaicEditView: UIView {
 }
 
 ///马赛克操作图层
-
 class ZSKImageEditorMosaicMaskView: UIView {
 
     private var imageLayer: CALayer?
@@ -151,6 +164,16 @@ class ZSKImageEditorMosaicMaskView: UIView {
         iv.contentMode = .scaleAspectFill
         return iv
     }()
+    
+    //圆圈view
+    private var circleView: UIView = {
+        let view = UIView()
+        view.isUserInteractionEnabled = false
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    private var circleLayer: CAShapeLayer = CAShapeLayer()
     
     lazy var context: CIContext = {
         return CIContext(options: nil)
@@ -180,13 +203,43 @@ class ZSKImageEditorMosaicMaskView: UIView {
         shapeLayer?.strokeColor = UIColor.blue.cgColor
         shapeLayer?.fillColor = nil
 
-        self.layer.addSublayer(self.shapeLayer!)
+//        self.layer.addSublayer(self.shapeLayer!)
         self.imageLayer?.mask = self.shapeLayer
 
         let pathRef = CGMutablePath()
         path = pathRef.mutableCopy()
         
-        
+        createCircleView()
+    }
+    
+    private func createCircleView() {
+        circleView.bounds = CGRect(origin: CGPoint.zero, size: CGSize(width: 10, height: 10))
+        circleView.center = CGPoint(x: self.bounds.width/2, y: self.bounds.height/2)
+        self.addSubview(circleView)
+        circleLayer.frame = circleView.bounds
+        circleLayer.lineWidth = 2
+        circleLayer.strokeColor = UIColor.white.cgColor
+        circleLayer.fillColor = nil
+        circleView.layer.addSublayer(circleLayer)
+        updateCircleViewFrame(radius: 20)
+        circleView.alpha = 0
+    }
+    
+    func updateCircleViewFrame(radius: CGFloat, endSet: Bool = false) {
+        circleView.isHidden = false
+        if endSet {
+            UIView.animate(withDuration: 1) {
+                self.circleView.alpha = 0
+            }
+        }else {
+            self.circleView.alpha = 1
+            shapeLayer?.lineWidth = radius
+            circleView.bounds = CGRect(origin: CGPoint.zero, size: CGSize(width: radius, height: radius))
+            let path = UIBezierPath(arcCenter: CGPoint(x: radius/2, y: radius/2), radius: radius/2, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: true)
+            circleLayer.path = path.cgPath
+        }
+       
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

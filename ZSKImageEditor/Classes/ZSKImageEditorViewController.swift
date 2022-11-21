@@ -159,6 +159,12 @@ extension ZSKImageEditorViewController {
         view.addSubview(mosaicMaskView)
         
         let mosaicView = ZSKImageEditorMosaicEditView()
+        mosaicView.lineWidthBlock = { [weak mosaicMaskView] lineWidth in
+            mosaicMaskView?.updateCircleViewFrame(radius: lineWidth)
+        }
+        mosaicView.didselectWidthBlock  = { [weak mosaicMaskView] in
+            mosaicMaskView?.updateCircleViewFrame(radius: 0.0, endSet: true)
+        }
         mosaicView.closeBlock = { [weak self] in
             self?.editEnable = false
             mosaicMaskView.removeFromSuperview()
