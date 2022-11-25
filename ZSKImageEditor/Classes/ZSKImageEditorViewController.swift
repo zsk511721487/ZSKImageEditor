@@ -6,19 +6,23 @@
 //
 
 import UIKit
+import PhotosUI
 
 @objc public protocol ZSKImageEditorViewDelegate: AnyObject {
     @objc func zskImageEdit(editor vc: ZSKImageEditorViewController, finish editImage: UIImage?)
 }
 
 extension ZSKImageEditorViewController {
-    public convenience init(originalImage: UIImage) {
+    public convenience init(originalImage: UIImage,hasChangeBtn: Bool = false) {
         self.init()
+        self.hasChangeBtn = hasChangeBtn
         self.originalImage = originalImage.zsk_fixOrientation()
     }
 }
 
 open class ZSKImageEditorViewController: UIViewController {
+    //是否有更换图片的按钮
+    var hasChangeBtn: Bool = false
     //原始图片
     var originalImage: UIImage!
     //导航view
@@ -96,11 +100,12 @@ open class ZSKImageEditorViewController: UIViewController {
     }
     
     private func createMenuView() {
-        menuView = ZSKImageEditorMenuView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - safeAreaBottom() - 60, width: UIScreen.main.bounds.width, height: 60 + safeAreaBottom()))
+        menuView = ZSKImageEditorMenuView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - safeAreaBottom() - 60, width: UIScreen.main.bounds.width, height: 60 + safeAreaBottom()), hasChangeBtn: hasChangeBtn)
         menuView?.rotateButton.addTarget(self, action: #selector(rotateButtonAction), for: .touchUpInside)
         menuView?.mosaicButton.addTarget(self, action: #selector(mosaicButtonAction), for: .touchUpInside)
         menuView?.cropButton.addTarget(self, action: #selector(cropButtonAction), for: .touchUpInside)
         menuView?.blackwhiteButton.addTarget(self, action: #selector(blackwhiteButtonAction), for: .touchUpInside)
+        menuView?.changeImageButton.addTarget(self, action: #selector(changeImageButtonAction), for: .touchUpInside)
         self.view.addSubview(menuView!)
     }
     
@@ -192,7 +197,7 @@ extension ZSKImageEditorViewController {
     
     @objc func cropButtonAction() {
         if let window = UIApplication.shared.keyWindow {
-            UIView.changeGreyFilterViewRect(view: window, rect: CGRect(x: 0, y: safeAreaTop(), width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop()))
+            UIView.changeGreyFilterViewRect(view: window, rect: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop()))
         }
         let image = imageView?.image
         var config = Config()
@@ -207,27 +212,6 @@ extension ZSKImageEditorViewController {
     }
     
     @objc func blackwhiteButtonAction() {
-//        if menuView!.blackwhiteButton.isSelected {
-//            _ = historyArray.popLast()
-//            menuView!.blackwhiteButton.isSelected.toggle()
-//            let image =  historyArray.last
-//            historyArray.append(image!)
-//            imageView?.image = image
-//            resetImageViewFrame()
-//            return
-//        }
-//        let image = imageView?.screenshotImage()
-//        let ciImage = CIImage(image: image!)
-//        let fiter = CIFilter(name: "CIPhotoEffectNoir")
-//        fiter?.setValue(ciImage, forKey: kCIInputImageKey)
-//        let context = CIContext(options: nil)
-//        let outPutImage = fiter?.outputImage
-//        let outPutCgImage = context.createCGImage(outPutImage!, from: outPutImage!.extent)
-//        let blackImage = UIImage(cgImage: outPutCgImage!)
-//        historyArray.append(blackImage)
-//        imageView?.image = blackImage
-//        resetImageViewFrame()
-//        menuView?.blackwhiteButton.isSelected = true
         menuView?.blackwhiteButton.isSelected.toggle()
         if let window = UIApplication.shared.keyWindow {
             if menuView!.blackwhiteButton.isSelected {
@@ -236,6 +220,10 @@ extension ZSKImageEditorViewController {
                 UIView.removeGreyFilterToView(view: window)
             }
         }
+    }
+    
+    @objc func changeImageButtonAction() {
+        requestAuthorization()
     }
 }
 
@@ -251,6 +239,48 @@ extension ZSKImageEditorViewController: CropViewControllerDelegate {
         resetImageViewFrame()
         self.dismiss(animated: false)
     }
+}
+
+extension ZSKImageEditorViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func requestAuthorization() {
+        if #available(iOS 14, *) {
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { result in
+                DispatchQueue.main.async {
+                    self.showImagePickerView()
+                }
+            }
+        } else {
+            
+        }
+    }
+    
+    func showImagePickerView() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = false
+        if #available(iOS 11.0, *) {
+            UIScrollView.appearance().contentInsetAdjustmentBehavior = .automatic
+        }
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+        picker.dismiss(animated: true, completion: nil)
+        print("获取的图片info:\(info)")
+        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            print("获取到新的图片")
+            let image = originalImage.zsk_fixOrientation()
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else {return}
+                self.historyArray.append(image)
+                self.imageView?.image = image
+                self.resetImageViewFrame()
+            }
+        }
+    }
+    
 }
 
 class ZSKImageEditorNavView: UIView {

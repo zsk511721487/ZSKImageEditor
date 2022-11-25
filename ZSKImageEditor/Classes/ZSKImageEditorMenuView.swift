@@ -7,8 +7,22 @@
 
 import UIKit
 
+extension ZSKImageEditorMenuView {
+    convenience init(frame: CGRect, hasChangeBtn: Bool) {
+        self.init(frame: frame)
+        self.hasChangeBtn = hasChangeBtn
+        createSubview()
+    }
+}
+
 class ZSKImageEditorMenuView: UIView {
     
+    private(set) var hasChangeBtn: Bool = false
+    
+    lazy var changeImageButton: ZSKImageEditorButton = {
+        let btn = ZSKImageEditorButton(buttonName: "更换", image: UIImage.loadCurrentAppearanceImage(imageName: "zskimgedit_menu_change_icon"))
+        return btn
+    }()
     lazy var rotateButton: ZSKImageEditorButton = {
         let btn = ZSKImageEditorButton(buttonName: "旋转", image: UIImage.loadCurrentAppearanceImage(imageName: "zskimgedit_menu_rotate_icon"))
         return btn
@@ -26,18 +40,32 @@ class ZSKImageEditorMenuView: UIView {
         return btn
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.init(hex: "#141414")
+    private func createSubview() {
         self.addSubview(rotateButton)
         self.addSubview(blackwhiteButton)
         self.addSubview(cropButton)
         self.addSubview(mosaicButton)
-        rotateButton.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.equalTo(12)
-            make.height.equalTo(60)
+        if hasChangeBtn {
+            self.addSubview(changeImageButton)
+            changeImageButton.snp.makeConstraints { make in
+                make.top.equalToSuperview()
+                make.left.equalTo(12)
+                make.height.equalTo(60)
+            }
+            rotateButton.snp.makeConstraints { make in
+                make.top.equalToSuperview()
+                make.left.equalTo(changeImageButton.snp.right).offset(0)
+                make.width.equalTo(changeImageButton.snp.width)
+                make.height.equalTo(60)
+            }
+        }else {
+            rotateButton.snp.makeConstraints { make in
+                make.top.equalToSuperview()
+                make.left.equalTo(12)
+                make.height.equalTo(60)
+            }
         }
+        
         blackwhiteButton.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalTo(rotateButton.snp.right).offset(0)
@@ -57,6 +85,11 @@ class ZSKImageEditorMenuView: UIView {
             make.right.equalToSuperview().offset(-10)
             make.height.equalTo(60)
         }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = UIColor.init(hex: "#141414")
     }
     
     required init?(coder: NSCoder) {

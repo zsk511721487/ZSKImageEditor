@@ -87,7 +87,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate,UIImagePi
         let originalImage = info["UIImagePickerControllerOriginalImage"] as! UIImage
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else {return}
-            let vc = ZSKImageEditorViewController(originalImage: originalImage)
+            let vc = ZSKImageEditorViewController(originalImage: originalImage,hasChangeBtn: true)
             vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
