@@ -31,7 +31,7 @@ extension UIView{
     
     //添加混合色view
     static func addGreyFilterToView(view: UIView, rect: CGRect? = nil) {
-        view.isUserInteractionEnabled = true
+//        view.isUserInteractionEnabled = false
         let frame = rect == nil ? view.bounds : rect!
         let coverView = UIView(frame: frame)
         coverView.isUserInteractionEnabled = false
@@ -53,5 +53,13 @@ extension UIView{
         if let coverView = view.viewWithTag(1010101010) {
             coverView.removeFromSuperview()
         }
+    }
+    
+    //是否存在灰色蒙层
+    static func hasGreyFilterToView(view: UIView) ->Bool {
+        if let coverView = view.viewWithTag(1010101010) {
+            return true
+        }
+        return false
     }
 }

@@ -30,6 +30,15 @@ open class ZSKImageEditorViewController: UIViewController {
     private var scrollview: UIScrollView = UIScrollView()
     private var imageView: UIImageView?
     private var menuView: ZSKImageEditorMenuView?
+    
+    //旋转按钮
+    lazy var rotateButton: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.setImage(UIImage.loadCurrentAppearanceImage(imageName: "zskimgedit_menu_rotate_icon"), for: .normal)
+        btn.addTarget(self, action: #selector(rotateImageAction), for: .touchUpInside)
+        return btn
+    }()
+    
     private var editEnable: Bool = false {
         didSet {
             navView.finishButton.isHidden = editEnable
@@ -58,13 +67,31 @@ open class ZSKImageEditorViewController: UIViewController {
             historyArray.append(originalImage)
         }
         createMenuView()
+        createRotateButton()
+    }
+    
+    private func createRotateButton() {
+        view.addSubview(rotateButton)
+        rotateButton.snp.makeConstraints { make in
+            make.left.equalTo(10)
+            make.bottom.equalTo(-safeAreaBottom() - 70)
+            make.width.height.equalTo(40)
+        }
+        rotateButton.isHidden = true
     }
 
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        print("没有获取到图片 viewWillAppear")
         if let window = UIApplication.shared.keyWindow {
-            UIView.changeGreyFilterViewRect(view: window, rect: CGRect(x: 0, y: safeAreaTop() + 44, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop() - 44 ))
+            if menuView!.blackwhiteButton.isSelected {
+                if !UIView.hasGreyFilterToView(view: window) {
+                    UIView.addGreyFilterToView(view: window,rect: CGRect(x: 0, y: safeAreaTop() + 44, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop() - 44 ))
+                }else {
+                    UIView.changeGreyFilterViewRect(view: window, rect:CGRect(x: 0, y: safeAreaTop() + 44, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop() - 44 ))
+                }
+            }
         }
     }
     
@@ -134,12 +161,46 @@ open class ZSKImageEditorViewController: UIViewController {
 }
 
 extension ZSKImageEditorViewController {
-    @objc public func rotateButtonAction() {
-        let currentImage = historyArray.last
+    
+    @objc func rotateImageAction() {
+        let currentImage = self.imageView?.image
         let newImage = currentImage?.rotate(radians: -CGFloat.pi/2)
-        historyArray.append(newImage!)
-        imageView?.image = newImage
-        resetImageViewFrame()
+        self.historyArray.append(newImage!)
+        self.imageView?.image = newImage
+        self.resetImageViewFrame()
+    }
+    
+    @objc public func rotateButtonAction() {
+        rotateButton.isHidden = false
+        menuView?.isUserInteractionEnabled = false
+        view.bringSubviewToFront(rotateButton)
+        let oldImage = historyArray.last?.copy()
+        let rotateView = ZSKImageEditorRotateEditView()
+        rotateView.finishBlock = { [weak self] in
+            guard let `self` = self else {return}
+            self.rotateButton.isHidden = true
+            self.menuView?.isUserInteractionEnabled = true
+        }
+        
+        rotateView.closeBlock = { [weak self] in
+            guard let `self` = self else {return}
+            self.rotateButton.isHidden = true
+            self.imageView?.image = oldImage as? UIImage
+            self.resetImageViewFrame()
+            self.menuView?.isUserInteractionEnabled = true
+        }
+        
+        view.addSubview(rotateView)
+        rotateView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.height.equalTo(safeAreaBottom() + 60)
+            make.top.equalTo(UIScreen.main.bounds.height)
+        }
+        
+        UIView.animate(withDuration: 0.25) { [weak rotateView] in
+            rotateView?.transform3D = CATransform3DMakeTranslation(0, -(safeAreaBottom() + 60), 0)
+        }
+        
     }   
     
     @objc public func mosaicButtonAction() {
@@ -256,9 +317,14 @@ extension ZSKImageEditorViewController: UINavigationControllerDelegate, UIImageP
     }
     
     func showImagePickerView() {
+//        self.menuView?.blackwhiteButton.isSelected = false
+        if let window = UIApplication.shared.keyWindow {
+            UIView.removeGreyFilterToView(view: window)
+        }
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = false
+        imagePickerController.modalPresentationStyle = .overFullScreen
         if #available(iOS 11.0, *) {
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .automatic
         }
@@ -269,6 +335,7 @@ extension ZSKImageEditorViewController: UINavigationControllerDelegate, UIImageP
         UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         picker.dismiss(animated: true, completion: nil)
         print("获取的图片info:\(info)")
+        self.menuView?.blackwhiteButton.isSelected = false
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             print("获取到新的图片")
             let image = originalImage.zsk_fixOrientation()
@@ -277,6 +344,20 @@ extension ZSKImageEditorViewController: UINavigationControllerDelegate, UIImageP
                 self.historyArray.append(image)
                 self.imageView?.image = image
                 self.resetImageViewFrame()
+            }
+        }
+    }
+    
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("没有获取到图片 重新添加蒙层")
+        self.dismiss(animated: true)
+        if let window = UIApplication.shared.keyWindow {
+            if menuView!.blackwhiteButton.isSelected {
+                if !UIView.hasGreyFilterToView(view: window) {
+                    UIView.addGreyFilterToView(view: window,rect: CGRect(x: 0, y: safeAreaTop() + 44, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop() - 44 ))
+                }else {
+                    UIView.changeGreyFilterViewRect(view: window, rect:CGRect(x: 0, y: safeAreaTop() + 44, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaTop() - 44 ))
+                }
             }
         }
     }
